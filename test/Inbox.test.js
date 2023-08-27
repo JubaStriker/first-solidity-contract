@@ -7,7 +7,19 @@ const assert = require('assert');
 // contract test code will go here
 const web3 = new Web3(ganache.provider());
 
+let accounts;
 
+beforeEach(async () => {
+    // Get the list of all accounts
+    // Use one of those accounts to deploy the contract
+    accounts = await web3.eth.getAccounts()
+})
+
+describe("Inbox", () => {
+    it('Deploys a contract', () => {
+        console.log(accounts)
+    })
+})
 
 
 
