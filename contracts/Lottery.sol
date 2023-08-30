@@ -25,8 +25,9 @@ contract Lotter {
         // Difficulty is replaced by prevrandao
     }
 
-    function pickWinner() public {
-        require(msg.sender == manager); // Only manager should be able to call this function
+    function pickWinner() public restricted {
+        // require(msg.sender == manager); // Only manager should be able to call this function
+        // Above function is replaced by modifier;
 
         uint index = random() % players.length;
         //players[index] will be a type of address that is like objects that can have methods
@@ -35,5 +36,10 @@ contract Lotter {
         // Send winner all the balance eth
 
         players = new address payable[](0); // Here (0) means initialize the array with lenght 0, still the array will be dynamic
+    }
+
+    modifier restricted() {
+        require(msg.sender == manager);
+        _;
     }
 }
