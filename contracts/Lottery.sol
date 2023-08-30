@@ -4,7 +4,6 @@ pragma solidity ^0.8.0;
 contract Lotter {
     address public manager;
     address payable[] public players;
-    address payable[] payPlayers;
 
     function Lottery() public {
         // msg is a global object that holds the address that invocated the current function in msg.sender
@@ -13,7 +12,7 @@ contract Lotter {
 
     function enter() public payable {
         require(msg.value > 0.001 ether);
-        players.push(msg.sender);
+        players.push(payable(msg.sender));
     }
 
     function random() private view returns (uint) {
