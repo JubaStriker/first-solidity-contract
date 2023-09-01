@@ -19,7 +19,7 @@ contract Lotter {
         return
             uint(
                 keccak256(
-                    abi.encodePacked(block.prevrandao, block.timestamp, players)
+                    abi.encodePacked(block.difficulty, block.timestamp, players)
                 )
             );
         // Difficulty is replaced by prevrandao
@@ -36,6 +36,10 @@ contract Lotter {
         // Send winner all the balance eth
 
         players = new address payable[](0); // Here (0) means initialize the array with lenght 0, still the array will be dynamic
+    }
+
+    function getPlayers() public view returns (address payable[] memory) {
+        return players;
     }
 
     modifier restricted() {
