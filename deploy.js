@@ -5,7 +5,7 @@ const { interface, bytecode } = require('./compile');
 
 // deploy code will go here
 
-const provider = new HDWalletProvider('jealous pudding spread north blue sail dumb patient blanket around grain ginger', 'https://goerli.infura.io/v3/e96bc6414fe94ccc9cdfe320af17137b');
+const provider = new HDWalletProvider('jealous pudding spread north blue sail dumb patient blanket around grain ginger', 'https://sepolia.infura.io/v3/e96bc6414fe94ccc9cdfe320af17137b');
 
 const web3 = new Web3(provider);
 
